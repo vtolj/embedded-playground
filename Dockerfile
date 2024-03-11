@@ -46,15 +46,18 @@ RUN apt-get update && apt-get install --y --no-install-recommends \
   symlinks \
   kmod 
 
-# Copy the U-Boot source code into the container
-COPY u-boot /app/u-boot
+# Clone the U-Boot source code repository
+RUN git clone https://source.denx.de/u-boot/u-boot.git
 
+# Set the ownership and permissions of the /u-boot directory
+RUN chown -R $USER:$USER /u-boot && \
+    chmod -R u+rwX /u-boot
 # Set the working directory
-WORKDIR /app
+WORKDIR /u-boot
 
 # Build U-Boot
-RUN make -C u-boot -j$(nproc) rpi_4_defconfig && \
-    make -C u-boot -j$(nproc)
+RUN make -j$(nproc) rpi_4_defconfig && \
+    make -j$(nproc)
 
 # Set the entrypoint for the container
 ENTRYPOINT ["/bin/bash", "-c"]
