@@ -64,6 +64,3 @@ WORKDIR /u-boot
 
 # Set the entrypoint for the container
 ENTRYPOINT ["/bin/bash", "-c"]
-
-# Tag the Docker image
-TAG inquisitor1337/uboot-builder:1.0.0
