@@ -46,6 +46,9 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
   symlinks \
   kmod 
 
+# Disable SSL certificate verification for git
+RUN git config --global http.sslVerify false
+
 # Clone the U-Boot source code repository
 RUN git clone https://source.denx.de/u-boot/u-boot.git
 
