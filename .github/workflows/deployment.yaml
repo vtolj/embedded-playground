@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uboot-builder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uboot-builder
+  template:
+    metadata:
+      labels:
+        app: uboot-builder
+    spec:
+      containers:
+      - name: uboot-builder
+        image: inquisitor1337/my-uboot-builder:latest
+        command: ["/bin/bash", "-c", "make -C u-boot rpi_4_defconfig && make -C u-boot"]
+
