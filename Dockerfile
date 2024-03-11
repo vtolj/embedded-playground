@@ -2,7 +2,7 @@
 FROM debian:bullseye-slim  
 # add a flag to avoid installing recommended pckg which are not required
  
-RUN apt-get update && apt-get install --y --no-install-recommends \ 
+RUN apt-get update && apt-get install --yes --no-install-recommends \ 
   make \
   crossbuild-essential-arm64 \
   bison \
