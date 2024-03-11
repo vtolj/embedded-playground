@@ -17,5 +17,5 @@ jobs:
       run: docker build -t uboot-builder:1.0.0 .
 
     - name: Push Docker image to registry
-      run: docker push inquisitor1337/uboot-builder:latest
+      run: docker push inquisitor1337/uboot-builder:1.0.0
 
