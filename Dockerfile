@@ -59,8 +59,8 @@ RUN chown -R $USER:$USER /u-boot && \
 WORKDIR /u-boot
 
 # Build U-Boot
-RUN make -j$(nproc) rpi_4_defconfig && \
-    make -j$(nproc)
+# RUN make -j$(nproc) rpi_4_defconfig && \
+#     make -j$(nproc)
 
 # Set the entrypoint for the container
 ENTRYPOINT ["/bin/bash", "-c"]
