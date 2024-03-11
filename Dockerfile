@@ -50,7 +50,7 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
 RUN git config --global http.sslVerify false
 
 # Clone the U-Boot source code repository
-RUN git clone https://source.denx.de/u-boot/u-boot.git
+RUN git clone --depth 1 https://source.denx.de/u-boot/u-boot.git
 
 # Set the ownership and permissions of the /u-boot directory
 RUN chown -R $USER:$USER /u-boot && \

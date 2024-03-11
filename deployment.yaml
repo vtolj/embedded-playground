@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: uboot-builder
-        image: inquisitor1337/uboot-builder:latest
+        image: inquisitor1337/uboot-builder:1.0.0
         command: ["/bin/bash", "-c", "make -C u-boot rpi_4_defconfig && make -C u-boot"]
 
